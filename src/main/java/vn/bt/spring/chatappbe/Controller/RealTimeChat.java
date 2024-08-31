@@ -35,13 +35,10 @@ public class RealTimeChat {
             throw new IllegalArgumentException("userId and chatId must not be null");
         }
 
-        // Save the message using the service
         Message savedMessage = messageService.sendMessage(sendMessageRequest);
 
-        // Convert the saved message to DTO
         MessageDTO messageDTO = MessageMapper.toDTO(savedMessage);
 
-        // Broadcast the saved message
         simpMessagingTemplate.convertAndSend("/group/" + savedMessage.getChat().getId(), messageDTO);
         logger.info("Broadcasted message to /group/{}", savedMessage.getChat().getId());
 

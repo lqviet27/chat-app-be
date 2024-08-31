@@ -11,8 +11,6 @@ public class Profile {
     private String bio;
     private Date birthday;
     private Boolean gender;
-    @Lob
-    @Column(columnDefinition = "MEDIUMBLOB")
     private String image;
 
     public Profile() {

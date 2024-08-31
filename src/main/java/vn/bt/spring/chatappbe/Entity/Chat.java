@@ -21,8 +21,7 @@ public class Chat {
     private Long id;
     @Column(name = "chat_name")
     private String chatName;
-    @Lob
-    @Column(name = "chat_image", columnDefinition = "MEDIUMBLOB")
+    @Column(name = "chat_image")
     private String chatImage;
     @Column(name = "description")
     private String description;
